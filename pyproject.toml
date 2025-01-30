@@ -1,0 +1,21 @@
+[project]
+name = "huggingface-bedrock-importer"
+version = "0.1.0"
+description = "Tool to import Hugging Face models into Amazon Bedrock"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "boto3>=1.36.8",
+    "huggingface-hub>=0.28.0",
+]
+
+[tool.uv]
+package = true
+
+[dependency-groups]
+dev = [
+    "boto3-stubs[bedrock,bedrock-runtime,iam,s3]>=1.36.8",
+]
+
+[project.scripts]
+hf-bedrock-import = "huggingface_bedrock_importer.cli:main"
